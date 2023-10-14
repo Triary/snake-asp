@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Drawing;
 using work_Avr.game;
 using work_Avr.Models.Api;
 
@@ -25,19 +26,22 @@ namespace work_Avr.Controllers
 
         public void GoUp()
         {
-            _game.Snake.Speed = new System.Drawing.Point(0, -1);
+            _game.Snake.Speed = new Point(0, -1);
         }
+
         public void GoDown()
         {
-            _game.Snake.Speed = new System.Drawing.Point(0, 1);
+            _game.Snake.Speed = new Point(0, +1);
         }
+
         public void GoLeft()
         {
-            _game.Snake.Speed = new System.Drawing.Point(-1, 0);
+            _game.Snake.Speed = new Point(-1, 0);
         }
-        public void GoRight()
+
+        public void GoRigth()
         {
-            _game.Snake.Speed = new System.Drawing.Point(1, 0);
+            _game.Snake.Speed = new Point(+1, 0);
         }
 
 

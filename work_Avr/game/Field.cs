@@ -27,9 +27,9 @@ namespace work_Avr.game
         {
             Point snakeHead = _snake.SnakeHead;
             Point[] snakeBody = _snake.SnakeBody;
-            _field[snakeHead.X][snakeHead.Y] = 3;
 
-            foreach(var snakeBodyPoint in snakeBody)
+            _field[snakeHead.Y][snakeHead.X] = 3;
+            foreach (var snakeBodyPoint in snakeBody)
             {
                 _field[snakeBodyPoint.Y][snakeBodyPoint.X] = 2;
             }
@@ -44,7 +44,6 @@ namespace work_Avr.game
         public void ChangeField()
         {
                 _field = InitField();
-
                 AddSnakeDataToField();
 
                 //меняем местоположение яблока каждое обновление ChangeField()

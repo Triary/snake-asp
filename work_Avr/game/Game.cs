@@ -3,7 +3,7 @@
     public class Game
     {
         public Field field => _field;
-        public Snake Snake => new Snake();
+        public Snake Snake => _snake;
         public GameTimer Timer => _timer;
 
         private readonly Field _field;
