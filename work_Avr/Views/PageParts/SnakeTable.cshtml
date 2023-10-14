@@ -1,0 +1,31 @@
+﻿@model work_Avr.Models.Api.GetFieldDataModel
+
+<table>
+    @for (int rowCounter = 0; rowCounter < Model.FieldHeigth; rowCounter++)
+    {
+        <tr>
+
+            @for (int cellCounter = 0; cellCounter < Model.FieldWidth; cellCounter++)
+            {
+                @switch(Model.FieldData[rowCounter][cellCounter])
+                {
+                    case 1: //apple
+                        <td  style="background-color: #FF6347;">  </td>
+                        break;
+                    case 2: //snake
+                        <td style="background-color: #343b29;">  </td>
+                        break;
+                    case 3: //snake
+                        <td style="background-color: #006400;">  </td>
+                        break;
+                    default:
+                        <td></td>
+                        break;
+                }
+                
+                    
+                
+            }
+        </tr>
+    }
+</table>

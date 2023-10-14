@@ -1,0 +1,10 @@
+﻿.snakeTable table {
+    border: #66CDAA dashed 1px;
+    border-spacing: 1px;
+}
+
+.snakeTable td {
+    width:30px;
+    height:30px;
+    border:#66CDAA solid 1px;
+}
