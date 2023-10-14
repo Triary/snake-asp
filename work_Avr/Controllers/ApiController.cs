@@ -5,23 +5,28 @@ using work_Avr.Models.Api;
 
 namespace work_Avr.Controllers
 {
-    // [Route("api/[controller]")]
-    //  [ApiController]
     public class ApiController : Controller
     {
-        private Game _game;
+        private readonly Game _game;
         public ApiController(Game game)
         {
             _game = game;
         }
 
+        //GET
         public IActionResult GetField()
         {
 
-            // _game.field.ChangeField();
-            var dataModel = new GetFieldDataModel(_game);
+            var dataModel = new SnakeFieldDataModel(_game);
             return PartialView("/Views/PageParts/SnakeTable.cshtml", dataModel);
 
+        }
+
+        //GET
+        public IActionResult GetStatus()
+        {
+            var dataModel = new SnakeStatusDataModel(_game);
+            return PartialView("/Views/PageParts/SnakeStatus.cshtml", dataModel);
         }
 
         public void GoUp()
@@ -43,9 +48,6 @@ namespace work_Avr.Controllers
         {
             _game.Snake.Speed = new Point(+1, 0);
         }
-
-
-
 
     }
 }

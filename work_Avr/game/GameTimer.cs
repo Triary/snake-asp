@@ -16,7 +16,6 @@
 
             if(timerListener.Length > 0) 
                 _timer.Change(_timeout, Timeout.InfiniteTimeSpan);
-
         }
 
 
