@@ -18,7 +18,7 @@ namespace work_Avr.game
             _snake = new Snake();
             _field = new Field(_snake);
             stats = new Statistics(_snake);
-            _timer = new GameTimer(TimeSpan.FromSeconds(0.5f), _field.ChangeField, _snake.Move, stats.Tick);
+            _timer = new GameTimer(TimeSpan.FromSeconds(0.1f), _field.ChangeField, _snake.Move, stats.Tick);
         }
     }
 }
