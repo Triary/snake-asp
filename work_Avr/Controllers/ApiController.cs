@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Drawing;
-using work_Avr.game;
-using work_Avr.Models.Api;
+using SnakeProj.game;
+using SnakeProj.Models.Api;
 
-namespace work_Avr.Controllers
+namespace SnakeProj.Controllers
 {
     public class ApiController : Controller
     {
@@ -28,6 +28,13 @@ namespace work_Avr.Controllers
             var dataModel = new SnakeStatusDataModel(_game);
             return PartialView("/Views/PageParts/SnakeStatus.cshtml", dataModel);
         }
+
+        //GET
+        public SnakeStatusDataModel GetSnakeStatusDataModel()
+        {
+            return new SnakeStatusDataModel(_game);
+        }
+
 
         public void GoUp()
         {

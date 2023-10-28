@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using work_Avr.Models;
+using SnakeProj.Models;
 
-namespace work_Avr.Controllers
+namespace SnakeProj.Controllers
 {
     public class HomeController : Controller
     {

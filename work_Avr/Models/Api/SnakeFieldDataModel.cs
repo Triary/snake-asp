@@ -1,4 +1,4 @@
-﻿namespace work_Avr.Models.Api
+﻿namespace SnakeProj.Models.Api
 {
     public class SnakeFieldDataModel
     {

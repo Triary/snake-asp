@@ -1,4 +1,4 @@
-﻿@model work_Avr.Models.Api.SnakeStatusDataModel
+﻿@model SnakeProj.Models.Api.SnakeStatusDataModel
 
     <table>
         <tr>
@@ -9,12 +9,22 @@
         </tr>
         <tr>
             <td>Size: </td>
-            <td> @Model.SnakeSize</td>
+            <td>@Model.SnakeSize</td>
         </tr>
         <tr>
             <td>Score: </td>
-            <td> @Model.SnakeScore</td>
-
+            <td>@Model.SnakeScore</td>
+        </tr>
+    </table>
+<p>====================================</p> 
+    <table>
+        <tr>
+            <td>Alive: </td>
+            <td>@Model.isSnakeAlive</td>
+        </tr>
+        <tr>
+            <td>Moving: </td>
+            <td>@Model.isSnakeMove</td>
         </tr>
     </table>
 

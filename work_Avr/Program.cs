@@ -1,6 +1,6 @@
-using work_Avr.game;
+using SnakeProj.game;
 
-namespace work_Avr
+namespace SnakeProj
 {
     public class Program
     {

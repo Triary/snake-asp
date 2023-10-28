@@ -1,13 +1,13 @@
-﻿@model work_Avr.Models.Api.SnakeFieldDataModel
+﻿@model SnakeProj.Models.Api.SnakeFieldDataModel
 
 <table>
-    @for (int rowCounter = 0; rowCounter < Model.FieldHeigth; rowCounter++)
+    @for (int cellCounter = 0; cellCounter < Model.FieldWidth; cellCounter++) 
     {
         <tr>
 
-            @for (int cellCounter = 0; cellCounter < Model.FieldWidth; cellCounter++)
+            @for (int rowCounter = 0; rowCounter < Model.FieldHeigth; rowCounter++)
             {
-                @switch(Model.FieldData[rowCounter][cellCounter])
+                @switch(Model.FieldData[cellCounter][rowCounter])
                 {
                     case 1: //apple
                         <td  style="background-color: #FF6347;">  </td>

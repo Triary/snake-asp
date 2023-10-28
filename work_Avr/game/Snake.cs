@@ -1,10 +1,10 @@
 ﻿using System.Drawing;
 
-namespace work_Avr.game
+namespace SnakeProj.game
 {
     public class Snake
     {
-        public const int BORN_SNAKE_SIZE = 4;
+        public const int BORN_SNAKE_SIZE = 10;
         public Point[] SnakeBody => _snakeBody.Where(x => x != SnakeHead).ToArray();
         public Point SnakeHead => _snakeBody.Last();
         public Point Speed { get; set; } = Point.Empty;
@@ -13,6 +13,7 @@ namespace work_Avr.game
         public bool isMoving { get; private set; } = false;
         public bool isDead { get; private set; } = false;
         public int SnakeSize => _snakeBody.Count;
+        public bool isGrowing { get; set; } = false;
 
         public Snake()
         {
@@ -40,7 +41,15 @@ namespace work_Avr.game
 
             if (isDead) return;
 
-            _snakeBody.Dequeue();
+            if (!isGrowing)
+            {
+                _snakeBody.Dequeue();
+            }
+            else
+            {
+                isGrowing = !isGrowing;
+            }
+            //_snakeBody.Dequeue();
 
             isDead |= isHitMyself(nextHead);
 

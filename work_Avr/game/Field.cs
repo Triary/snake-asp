@@ -1,16 +1,16 @@
 ﻿
 using System.Drawing;
 
-namespace work_Avr.game
+namespace SnakeProj.game
 {
     public class Field
     {
-        public const int _FIELD_WIDTH = 10;
-        public const int _FIELD_HEIGTH = 10;
+        public const int _FIELD_WIDTH = 15;
+        public const int _FIELD_HEIGTH = 15;
         public int[][] FieldData => _field;
         public Snake _snake;
         private int[][] _field;
-
+        private readonly Apple _apple;
 
         private static int[][] InitField()
         {
@@ -41,17 +41,23 @@ namespace work_Avr.game
             _snake = snake;
             _field = InitField();
         }
+
+        public Field(Snake snake, Apple appl)
+        {
+            _snake = snake;
+            _apple = appl;
+            _field = InitField();
+        } 
         public void ChangeField()
         {
                 _field = InitField();
                 AddSnakeDataToField();
+                AddAppleField();   
+        }
 
-                //меняем местоположение яблока каждое обновление ChangeField()
-                var rand = new Random();
-                var rndRow = rand.Next() % 10;
-                var rndColumn = rand.Next() % 10;
-                _field[rndRow][rndColumn] = 1;
-            
+        private void AddAppleField()
+        {
+            _field[_apple.Position.X][_apple.Position.Y] = 1;
         }
     }
 }

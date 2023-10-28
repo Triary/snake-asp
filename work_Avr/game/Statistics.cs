@@ -1,33 +1,47 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 
-namespace work_Avr.game
+namespace SnakeProj.game
 {
     public class Statistics
     {
 
         private readonly Snake _snake;
+
+        public DateTime GameStopped { get; set; }
         public TimeSpan GameTime { get; private set; }
-        private DateTime _time { get; set; }
+        private DateTime GameStarted { get; set; }
         public int GameScore {  get; private set; }
         public int SnakeSize {  get; private set; }
+        public bool IsSnakeDead { get; private set; }
+
         public Statistics(Snake snake) 
         {
             _snake = snake;
-            _time = _snake.isMoving ? DateTime.Now : DateTime.MinValue;
+            GameStopped = DateTime.MinValue;
+            GameStarted = _snake.isMoving ? DateTime.Now : DateTime.MinValue;
             SnakeSize = _snake.SnakeSize;
             GameTime = TimeSpan.Zero;
             GameScore = 0;
+            IsSnakeDead = false;
         }
 
         public void Tick()
         {
-            if( _snake.isMoving && _time == DateTime.MinValue) 
+
+            if(_snake.isDead)
             {
-                 _time = DateTime.Now;
+                IsSnakeDead = true;
+                GameStopped = GameStopped == DateTime.MinValue ? DateTime.Now: GameStopped;
+            }
+
+            if( _snake.isMoving && GameStarted == DateTime.MinValue) 
+            {
+                 GameStarted = DateTime.Now;
             }
             if( _snake.isMoving )
             {
-                GameTime = DateTime.Now - _time;
+                GameTime = GameStopped == DateTime.MinValue ? DateTime.Now - GameStarted : GameStopped - GameStarted;
+
             }
             if(_snake.SnakeSize != SnakeSize)
             {
@@ -36,7 +50,7 @@ namespace work_Avr.game
                 ///100 for 10 steps
                 ///10 for more than 20 steps
                 ///
-                var eatSeconds = (int)(DateTime.Now - _time).TotalSeconds;
+                var eatSeconds = (int)(DateTime.Now - GameStarted).TotalSeconds;
                 if(eatSeconds < 10 ) 
                 {
                     GameScore += 50;

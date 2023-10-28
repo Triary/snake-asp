@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using work_Avr.game;
-using work_Avr.Models.Api;
+using SnakeProj.game;
+using SnakeProj.Models.Api;
 
-namespace work_Avr.Controllers
+namespace SnakeProj.Controllers
 {
     public class GAMEcontroller : Controller
     {

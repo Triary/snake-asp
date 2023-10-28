@@ -1,4 +1,4 @@
-namespace work_Avr.Models
+namespace SnakeProj.Models
 {
     public class ErrorViewModel
     {

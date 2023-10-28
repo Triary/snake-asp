@@ -1,4 +1,4 @@
-﻿namespace work_Avr.game
+﻿namespace SnakeProj.game
 {
     using System.Configuration;
     using System.Threading;

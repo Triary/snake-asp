@@ -1,16 +1,19 @@
 ﻿
-@using work_Avr.Models.Api
-@model work_Avr.game.Game
+@using SnakeProj.Models.Api
+@model SnakeProj.game.Game
 
 
 @section Head {
     <script src="js/snaleTableUpdater.js"> </script>
     <script src="js/snaleStatusUpdater.js"> </script>
+    <script src="js/snaleStatusGetter.js"> </script>
     <script>
         let tableUpdater = new SnakeTableUpdater(50,"snakeTable");
         tableUpdater.Start();
         let statusUpdater = new SnakeStatusUpdater(50, "snakeStatus");
         statusUpdater.Start();
+        let statusGetter = new SnakeStatusGetter(100);
+        statusGetter.Start();
     </script>
 
     <script>
@@ -35,6 +38,12 @@
             }
             console.log(args);
         }
+    </script>
+    <script>
+      //  if(Model.Snake.isDead)
+       // {
+          //  alert("Game over");
+       // }
     </script>
 
     <link rel="stylesheet" type="text/css" href="~/css/SnakeField.css" />

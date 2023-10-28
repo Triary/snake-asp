@@ -1,6 +1,6 @@
-﻿using work_Avr.game;
+﻿using SnakeProj.game;
 
-namespace work_Avr.Models.Api
+namespace SnakeProj.Models.Api
 {
     public class SnakeStatusDataModel
     {
@@ -11,12 +11,16 @@ namespace work_Avr.Models.Api
             GameTime = game.stats.GameTime;
             SnakeSize = game.Snake.SnakeSize;
             SnakeScore = game.stats.GameScore;
+            isSnakeAlive = !game.stats.IsSnakeDead;
+            isSnakeMove = game.Snake.isMoving;
         }
 
 
         public TimeSpan GameTime { get; }
         public int SnakeSize { get; }
         public int SnakeScore { get; }
-        //public int 
+
+        public bool isSnakeAlive {  get; }
+        public bool isSnakeMove {  get; }
     }
 }
